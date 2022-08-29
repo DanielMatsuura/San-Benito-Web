@@ -1,3 +1,7 @@
+import { Button } from "react-bootstrap"
+import {AiTwotoneEdit,AiFillDelete,AiFillEye} from "react-icons/ai"
+import styles from './table.module.scss'
+
 
 const MyTable = (props) => {
 
@@ -14,19 +18,25 @@ const MyTable = (props) => {
                         <th scope="col">Celular</th>
                         <th scope="col">Celular Aux</th>
                         <th scope="col">Estado</th>
-                        <th scope="col"></th>
+                        <th scope="col">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Juanito Ramirez</td>
-                        <td>B7</td>
-                        <td>Normal</td>
-                        <td>0982546630</td>
-                        <td>1223431</td>
-                        <td>Activo</td>
-                        <td>buttons</td>
+                    <tr className={styles.filas}>
+                        <td scope="row"><div>1</div></td>
+                        <td><div>Juanito Ramirez</div></td>
+                        <td><div>B7</div></td>
+                        <td><div>Normal</div></td>
+                        <td><div>0982546630</div></td>
+                        <td><div>1223431</div></td>
+                        <td><div>Activo</div></td>
+                        <td>
+                            <div className={styles.buttons}>
+                                <button className="btn btn-info"><AiFillEye size={15}/></button>
+                                <button className="btn btn-warning"><AiTwotoneEdit size={15}/></button>
+                                <button className="btn btn-danger"><AiFillDelete size={15}/></button>
+                            </div>
+                        </td>
                     </tr>
                 </tbody>
             </table>

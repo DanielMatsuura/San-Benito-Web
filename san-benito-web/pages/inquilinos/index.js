@@ -12,7 +12,7 @@ var columns = [
     { dataField: "celular", text: "Celular" },
     { dataField: "celularAux", text: "Celular Aux" },
     { dataField: "estado", text: "Estado" },
-    { text: "Accion" }
+    { dataField: "accion", text: "Acciones" },
 ]
 
 var lista = [
@@ -24,7 +24,7 @@ var lista = [
         celular: "0982546630",
         celularAux: "0984346459",
         estado: "Activo",
-        accion: null
+        accion: "Hola"
     }
 ]
 
