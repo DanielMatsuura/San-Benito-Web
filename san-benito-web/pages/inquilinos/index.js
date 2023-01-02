@@ -25,6 +25,16 @@ var lista = [
         celularAux: "0984346459",
         estado: "Activo",
         accion: "Hola"
+    },
+    {
+        id: "2",
+        name: "Carlos Matsuura",
+        depto: "A1",
+        tipoDepto: "Normal",
+        celular: "0982546630",
+        celularAux: "0984346459",
+        estado: "Activo",
+        accion: "Hola"
     }
 ]
 

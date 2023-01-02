@@ -4,7 +4,8 @@ import styles from './table.module.scss'
 
 
 const MyTable = (props) => {
-
+    let inquilinos = props.data
+    
     return (
         <div>
             <table class="table">
@@ -22,22 +23,26 @@ const MyTable = (props) => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr className={styles.filas}>
-                        <td scope="row"><div>1</div></td>
-                        <td><div>Juanito Ramirez</div></td>
-                        <td><div>B7</div></td>
-                        <td><div>Normal</div></td>
-                        <td><div>0982546630</div></td>
-                        <td><div>1223431</div></td>
-                        <td><div>Activo</div></td>
-                        <td>
-                            <div className={styles.buttons}>
-                                <button className="btn btn-info"><AiFillEye size={15}/></button>
-                                <button className="btn btn-warning"><AiTwotoneEdit size={15}/></button>
-                                <button className="btn btn-danger"><AiFillDelete size={15}/></button>
-                            </div>
-                        </td>
-                    </tr>
+                    {inquilinos.map(( listValue, index ) => {
+                    return (
+                        <tr key={index} className={styles.filas}>
+                            <td scope="row"><div>{listValue.id}</div></td>
+                            <td><div>{listValue.name}</div></td>
+                            <td><div>{listValue.depto}</div></td>
+                            <td><div>{listValue.tipoDepto}</div></td>
+                            <td><div>{listValue.celular}</div></td>
+                            <td><div>{listValue.celularAux}</div></td>
+                            <td><div>{listValue.estado}</div></td>
+                            <td>
+                                <div className={styles.buttons}>
+                                    <button className="btn btn-info"><AiFillEye size={15}/></button>
+                                    <button className="btn btn-warning"><AiTwotoneEdit size={15}/></button>
+                                    <button className="btn btn-danger"><AiFillDelete size={15}/></button>
+                                </div>
+                            </td>
+                        </tr>
+                    );
+                    })}
                 </tbody>
             </table>
         </div>
