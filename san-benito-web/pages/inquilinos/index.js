@@ -1,8 +1,9 @@
-import React from "react"
+import React, { useState } from "react"
 import { Container, Row, Col, Button, Table, BootstrapTable } from 'react-bootstrap';
 import Navegacion from '../../components/Navegacion'
 import styles from './inquilinos.module.scss'
 import MyTable from "../../components/MyTable";
+import AddTenantsForm from "../../components/tenants/AddTenantsForm";
 
 var columns = [
     { dataField: "id", text: "#" },
@@ -41,6 +42,11 @@ var lista = [
 
 
 function Inquilinos() {
+    const [showForm, setShowForm] = useState(false);
+
+    const handleCloseForm = () => setShowForm(false);
+    const handleShowForm = () => setShowForm(true);
+
     return (
         <div>
             <body>
@@ -52,8 +58,12 @@ function Inquilinos() {
                     </Row>
                     <Row className={styles.filaButtonAñadir}>
                         <Col md="auto">
-                            <a class="btn btn-info" href="#" role="button">Añadir Nuevo Inquilino</a>
+                            <a class="btn btn-info" href="#" role="button" onClick={handleShowForm}>Añadir Nuevo Inquilino</a>
+                            <AddTenantsForm handleClose={handleCloseForm} show={showForm}></AddTenantsForm>
                         </Col>
+
+
+
                     </Row>
                     <Row className="justify-content-center">
                         <Col md="auto">

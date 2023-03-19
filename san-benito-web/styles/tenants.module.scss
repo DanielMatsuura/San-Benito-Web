@@ -1,0 +1,19 @@
+
+.modal {
+    border-radius: 5%;
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 24%, rgba(204,229,255,1) 52%, rgba(204,229,255,1) 100%);
+    border-color: #CCE5FF;
+    div:nth-child(1){
+        justify-content: center;
+        border-top-right-radius:50%;
+        border-top-left-radius: 50%;
+        background-color: #CCE5FF;
+        border-color: #CCE5FF;
+    }
+    div:nth-child(3){
+        border-color:white;
+    }
+   
+}
+
