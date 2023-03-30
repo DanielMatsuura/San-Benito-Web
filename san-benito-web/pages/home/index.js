@@ -1,8 +1,7 @@
-
 import { Container, Row, Col } from 'react-bootstrap';
-import Navegacion from '../../components/Navegacion';
-import DescripcionCop from '../../components/DescripcionCop';
-import styles from './home.module.css'
+import DescripcionCop from '../../components/home/DescripcionCop';
+import Navegacion from '../../components/home/Navegacion';
+import styles from './home.module.scss'
 
 function Home() {
   return (

@@ -1,10 +1,10 @@
-import React, {useEffect, useState} from "react"
-import { Container, Row, Col} from 'react-bootstrap';
-import Navegacion from '../../components/Navegacion'
+import React, { useEffect, useState } from "react"
+import { Container, Row, Col } from 'react-bootstrap';
+import Navegacion from '../../components/home/Navegacion'
 import styles from './inquilinos.module.scss'
-import MyTable from "../../components/MyTable";
-import AddTenantsForm from "../../components/tenants/AddTenantsForm";
+import AddTenantsForm from "../../components/inquilinos/AddInquilinoForm";
 import { useInquilino } from "../../src/context/inquilino-context";
+import TableInquilinos from "../../components/inquilinos/TableInquilinos";
 
 
 var lista = [
@@ -38,11 +38,11 @@ function Inquilinos() {
     const handleShowForm = () => setShowForm(true);
 
     //Para los inquilinos
-    const {inquilinos} = useInquilino();
+    const { inquilinos } = useInquilino();
 
-    useEffect (()=>{
-        console.log("Inquilino-index: ",inquilinos)
-    },[inquilinos])
+    useEffect(() => {
+        console.log("Inquilino-index: ", inquilinos)
+    }, [inquilinos])
     return (
         <>
             <Container fluid className={styles.Cuerpo}>
@@ -56,15 +56,13 @@ function Inquilinos() {
                         <a className="btn btn-info" href="#" role="button" onClick={handleShowForm}>Añadir Nuevo Inquilino</a>
                         <AddTenantsForm handleClose={handleCloseForm} show={showForm}></AddTenantsForm>
                     </Col>
-
                 </Row>
                 <Row className="justify-content-center">
                     <Col md="auto">
-                        <MyTable data={inquilinos}/>
+                        <TableInquilinos data={inquilinos} />
                     </Col>
                 </Row>
             </Container>
-
         </>
     )
 }
