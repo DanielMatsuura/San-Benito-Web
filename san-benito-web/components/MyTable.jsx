@@ -1,16 +1,15 @@
-import { Button } from "react-bootstrap"
 import {AiTwotoneEdit,AiFillDelete,AiFillEye} from "react-icons/ai"
 import styles from './table.module.scss'
 
 
 const MyTable = (props) => {
-    let inquilinos = props.data
-    
+    let inquilinos = props.data;
+   
     return (
         <div>
-            <table class="table">
+            <table className="table">
                 <caption>Lista de Inquilinos</caption>
-                <thead class="thead-dark">
+                <thead className="thead-dark">
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Nombre</th>
@@ -27,12 +26,12 @@ const MyTable = (props) => {
                     return (
                         <tr key={index} className={styles.filas}>
                             <td scope="row"><div>{listValue.id}</div></td>
-                            <td><div>{listValue.name}</div></td>
-                            <td><div>{listValue.depto}</div></td>
-                            <td><div>{listValue.tipoDepto}</div></td>
-                            <td><div>{listValue.celular}</div></td>
-                            <td><div>{listValue.celularAux}</div></td>
-                            <td><div>{listValue.estado}</div></td>
+                            <td><div>{listValue.firstName} {listValue.lastName}</div></td>
+                            <td><div>{listValue.deptoNumber}</div></td>
+                            <td><div>{listValue.deptoType}</div></td>
+                            <td><div>{listValue.phoneNumber}</div></td>
+                            <td><div>{listValue.phoneNumberAux}</div></td>
+                            <td><div>{listValue.isActive}</div></td>
                             <td>
                                 <div className={styles.buttons}>
                                     <button className="btn btn-info"><AiFillEye size={15}/></button>

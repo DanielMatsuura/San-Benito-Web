@@ -1,20 +1,11 @@
-import React, { useState } from "react"
-import { Container, Row, Col, Button, Table, BootstrapTable } from 'react-bootstrap';
+import React, {useEffect, useState} from "react"
+import { Container, Row, Col} from 'react-bootstrap';
 import Navegacion from '../../components/Navegacion'
 import styles from './inquilinos.module.scss'
 import MyTable from "../../components/MyTable";
 import AddTenantsForm from "../../components/tenants/AddTenantsForm";
+import { useInquilino } from "../../src/context/inquilino-context";
 
-var columns = [
-    { dataField: "id", text: "#" },
-    { dataField: "name", text: "Nombre" },
-    { dataField: "depto", text: "Depto" },
-    { dataField: "tipoDepto", text: "TipoDepto" },
-    { dataField: "celular", text: "Celular" },
-    { dataField: "celularAux", text: "Celular Aux" },
-    { dataField: "estado", text: "Estado" },
-    { dataField: "accion", text: "Acciones" },
-]
 
 var lista = [
     {
@@ -39,44 +30,42 @@ var lista = [
     }
 ]
 
-
-
 function Inquilinos() {
-    const [showForm, setShowForm] = useState(false);
 
+    //Para el formulario de añadir un inquilino
+    const [showForm, setShowForm] = useState(false);
     const handleCloseForm = () => setShowForm(false);
     const handleShowForm = () => setShowForm(true);
 
+    //Para los inquilinos
+    const {inquilinos} = useInquilino();
+
+    useEffect (()=>{
+        console.log("Inquilino-index: ",inquilinos)
+    },[inquilinos])
     return (
-        <div>
-            <body>
-                <Container fluid className={styles.Cuerpo}>
-                    <Row className={styles.CuerpoNav}>
-                        <Col className={styles.col}>
-                            <Navegacion InquisState="true"></Navegacion>
-                        </Col>
-                    </Row>
-                    <Row className={styles.filaButtonAñadir}>
-                        <Col md="auto">
-                            <a class="btn btn-info" href="#" role="button" onClick={handleShowForm}>Añadir Nuevo Inquilino</a>
-                            <AddTenantsForm handleClose={handleCloseForm} show={showForm}></AddTenantsForm>
-                        </Col>
+        <>
+            <Container fluid className={styles.Cuerpo}>
+                <Row className={styles.CuerpoNav}>
+                    <Col className={styles.col}>
+                        <Navegacion InquisState="true"></Navegacion>
+                    </Col>
+                </Row>
+                <Row className={styles.filaButtonAñadir}>
+                    <Col md="auto">
+                        <a className="btn btn-info" href="#" role="button" onClick={handleShowForm}>Añadir Nuevo Inquilino</a>
+                        <AddTenantsForm handleClose={handleCloseForm} show={showForm}></AddTenantsForm>
+                    </Col>
 
+                </Row>
+                <Row className="justify-content-center">
+                    <Col md="auto">
+                        <MyTable data={inquilinos}/>
+                    </Col>
+                </Row>
+            </Container>
 
-
-                    </Row>
-                    <Row className="justify-content-center">
-                        <Col md="auto">
-                            <MyTable
-                                data={lista}
-                                columns={columns}
-                            >
-                            </MyTable>
-                        </Col>
-                    </Row>
-                </Container>
-            </body>
-        </div>
+        </>
     )
 }
 
