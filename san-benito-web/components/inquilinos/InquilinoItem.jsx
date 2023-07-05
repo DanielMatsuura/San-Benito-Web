@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import styles from "../../styles/components/tableInquilinos.module.scss";
 import { AiTwotoneEdit, AiFillDelete, AiFillEye } from "react-icons/ai";
 import EditInquilinoForm from "./EditInquilinoForm";
+import { useRouter } from "next/router";
 
 const InquilinoItem = ({ inquilino }) => {
   const [showEditPopout, setShowEditPopout] = useState(false);
+  const router = useRouter();
 
   const handleEditClick = () => {
     setShowEditPopout(true);
@@ -14,6 +16,10 @@ const InquilinoItem = ({ inquilino }) => {
     setShowEditPopout(false);
   };
 
+  const handleSeeDetails = () => {
+    const href = "inquilinos/" + inquilino.id;
+    router.push(href);
+  };
   return (
     <>
       <td scope="row">
@@ -41,7 +47,7 @@ const InquilinoItem = ({ inquilino }) => {
       </td>
       <td>
         <div className={styles.buttons}>
-          <button className="btn btn-info">
+          <button className="btn btn-info" onClick={handleSeeDetails}>
             <AiFillEye size={15} />
           </button>
           <EditInquilinoForm

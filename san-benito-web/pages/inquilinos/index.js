@@ -70,3 +70,5 @@ function Inquilinos() {
 export default Inquilinos
 
 
+
+

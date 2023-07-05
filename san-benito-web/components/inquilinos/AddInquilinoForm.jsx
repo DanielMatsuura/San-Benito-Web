@@ -38,7 +38,13 @@ const AddInquilinoForm = (props) => {
             <Form.Control type="text" placeholder="Departamento N°" />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicDeptoTipo">
-            <Form.Control type="text" placeholder="Tipo de Departamento" />
+            <Form.Label>Tipo de Departamento</Form.Label>
+            <Form.Select>
+              <option value="ofi">Oficina</option>
+              <option value="basic">Basico</option>
+              <option value="normal">Normal</option>
+              <option value="special">Especial</option>
+            </Form.Select>
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicIsActive">
             <Form.Check type="checkbox" label="¿Alquilando?" />
